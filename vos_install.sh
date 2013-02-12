@@ -1,8 +1,8 @@
 #!/bin/sh
 echo "Starting install VOS2009 System"
 IP=222.73.176.45
-VOS2009_FILE=vos2009/vos2009.2.1.2.0.tar.gz
 FILE=vos2009.2.1.2.0.tar.gz
+VOS2009_FILE=vos2009/$FILE
 URL=http://$IP/$VOS2009_FILE
 echo $URL
 download_vos()
