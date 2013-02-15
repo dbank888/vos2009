@@ -5,15 +5,6 @@ FILE=vos2009.2.1.2.0.tar.gz
 VOS2009_FILE=vos2009/$FILE
 URL=http://$IP/$VOS2009_FILE
 echo $URL
-check_version()
-{
-OS=`cat /etc/issue|grep 5.5`
-if [ $OS -eq "" ]
-then
-	echo "Centos verison must be 5.5"
-	exit 0
-fi
-}
 download_vos()
 {
         wget $URL
@@ -66,7 +57,6 @@ make_license()
 	rm -rf $CRACK_LOG
 	rm -rf $PWD/$FILE
 }
-check_version
 download_vos
 install_rpm
 tar_tomcat
