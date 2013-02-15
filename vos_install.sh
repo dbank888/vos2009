@@ -8,7 +8,7 @@ echo $URL
 OS=`head -1 /etc/issue |grep 5.5`
 CHECK_VERSION()
 {
-if [ "$OS" != "" ]
+if [ "$OS" = "" ]
 then 
 	echo "CentOS version must be 5.5,Please check your version"
 	exit 0
