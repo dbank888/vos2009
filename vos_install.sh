@@ -5,13 +5,14 @@ FILE=vos2009.2.1.2.0.tar.gz
 VOS2009_FILE=vos2009/$FILE
 URL=http://$IP/$VOS2009_FILE
 echo $URL
-OS=`head -1 /etc/issue |grep 5.5`
-CHECK_VERSION()
+OS=`head -n 1 /etc/issue |awk '{ print $3}'`
+echo $OS
+check_version()
 {
-if [ "$OS" = "" ]
-then 
-	echo "CentOS version must be 5.5,Please check your version"
-	exit 0
+if [ "$OS" != 5.5 ]
+then
+        echo "CentOS version must be 5.5"
+        exit 0
 fi
 }
 download_vos()
@@ -66,6 +67,7 @@ make_license()
 	rm -rf $CRACK_LOG
 	rm -rf $PWD/$FILE
 }
+check_version
 download_vos
 install_rpm
 tar_tomcat
