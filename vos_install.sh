@@ -5,6 +5,15 @@ FILE=vos2009.2.1.2.0.tar.gz
 VOS2009_FILE=vos2009/$FILE
 URL=http://$IP/$VOS2009_FILE
 echo $URL
+OS=`head -1 /etc/issue |grep 5.5`
+CHECK_VERSION()
+{
+if [ "$OS" != "" ]
+then 
+	echo "CentOS version must be 5.5,Please check your version"
+	exit 0
+fi
+}
 download_vos()
 {
         wget $URL
