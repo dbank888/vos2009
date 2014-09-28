@@ -78,3 +78,5 @@ source /etc/profile
 install_vos
 make_license
 echo " Congratulation! VOS2009 has been installed successfully!"
+echo "Contact me if you want to crack the vos2009 2.1.2.0"
+echo "My QQ: 10597095"
