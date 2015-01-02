@@ -59,8 +59,8 @@ make_license()
 	JDK_TIME=`sed -n 12p $CRACK_LOG`
 	VOS_TIME=`sed -n 10p $CRACK_LOG`
 	RPM_TIME=`sed -n 8p $CRACK_LOG`
-        IP_ADDRESS=`ifconfig  | grep 'inet addr:'| grep -v '127.0.0.1' | cut -d: -f2 | awk '{ print $1}'`
-        MAC=`ifconfig  | grep 'HWaddr'|cut -d: -f3`-`ifconfig  | grep 'HWaddr'|cut -d: -f3`-`ifconfig  | grep 'HWaddr'|cut -d: -f4`-`ifconfig  | grep 'HWaddr'|cut -d: -f5`-`ifconfig  | grep 'HWaddr'|cut -d: -f6`-`ifconfig  | grep 'HWaddr'|cut -d: -f7`
+        IP_ADDRESS=`ifconfig  | grep -v '127.0.0.1' | awk '/inet addr/ {split($2,x,":");print x[2]}'`
+        MAC=`ifconfig |grep -o -E '([[:xdigit:]]{1,2}:){5}[[:xdigit:]]{1,2}'|sed 's|:|-|g'`
 	echo "IP_ADDRESS="$IP_ADDRESS
 	echo "MAC="$MAC
 	echo "JDK_TIME="$JDK_TIME
