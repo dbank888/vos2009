@@ -1,8 +1,8 @@
 #!/bin/sh
 echo "Starting install VOS2009 System"
-IP=42.96.153.141:8082/vos
+IP=vos.ucserver.org
 FILE=vos2009.2.1.2.0.tar.gz
-VOS2009_FILE=vos2009/$FILE
+VOS2009_FILE=$FILE
 URL=http://$IP/$VOS2009_FILE
 echo $URL
 OS=`head -n 1 /etc/issue |awk '{ print $3}'`
